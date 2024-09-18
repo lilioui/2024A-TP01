@@ -9,8 +9,6 @@ silver = code_medals.count('S')
 bronze = code_medals.count('B')
 
 if len(code_medals) != gold + silver + bronze :
-    print("Veuillez entrer un code de medaille valide.")
+    print("Ceci est une chaine invalide.")
 else :
-    print(f"{country}:\n- {gold} OR\n- {silver} Argent\n- {bronze} Bronze") 
-
-
+    print(f"{country}:\n- {gold} Or\n- {silver} Argent\n- {bronze} Bronze") 
