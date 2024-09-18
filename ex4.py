@@ -3,30 +3,33 @@
 #        et affiche le résultat au format "XX km".
 #        Assurez une gestion du pourcentage valide au cours de votre programme (% toujours dans [0 ; 100]).
 
-battery_level = input("Quel est le pourcentage de la batterie du bateau :")
+battery_level = float(input("Pourcentage de batterie ? "))
 
-if 50 < float(battery_level) <= 100:
-    new_battery_level = float(battery_level) - 50
-    distance = float(new_battery_level) * 2 + (25 * 0.5) + (15 * 1) + (5 * 2.5) + (5 * 6)
-    print (f"La distance possible est de {distance} km")
-elif 25 < float(battery_level) <= 50:
-    new_battery_level = float(battery_level) - 25
-    distance = float(new_battery_level) * 0.5 + (15 * 1) + (5 * 2.5) + (5 * 6)
-    print (f"La distance possible est de {distance} km")
-elif 10 < float(battery_level) <= 25:
-    new_battery_level = float(battery_level) - 10
-    distance = float(new_battery_level) * 1 + (5 * 2.5) + (5 * 6) 
-    print (f"La distance possible est de {distance} km")
-elif 5 < float(battery_level) <= 10:
-    new_battery_level = float(battery_level) - 5
-    distance = float(new_battery_level) * 2.5 + (5 * 6)
-    print (f"La distance possible est de {distance} km")
-elif 0 < int(battery_level) <= 5:
-    new_battery_level = float(battery_level) - 0
-    distance = float(new_battery_level) * 6
-    print (f"La distance possible est de {distance} km")
-elif float(battery_level) == 0:
-    distance = 0
-    print (f"La distance possible est de {distance} km")
-else:
-    print("Le pourcentage de la batterie doit être compris entre 0 et 100")
+parcours = 0
+
+if 50 < battery_level <= 100:
+    parcours += (battery_level - 50) * 2
+    battery_level = 50 
+
+if 25 < battery_level <= 50:
+    parcours += (battery_level - 25) * 0.5
+    battery_level = 25 
+
+if 10 < battery_level <= 25:
+    parcours += (battery_level - 10) * 1
+    battery_level = 10 
+
+if 5 < battery_level <= 10:
+    parcours += (battery_level - 5) * 2.5
+    battery_level = 5  
+
+if 0 < battery_level <= 5:
+
+    parcours += battery_level * 6
+    print(f"{parcours:.1f} km")
+
+if battery_level == 0 :
+    print("La batterie est vide")
+
+if not battery_level in range(0, 100) :
+    print("Veuillez entrer une pourcentage valide")
